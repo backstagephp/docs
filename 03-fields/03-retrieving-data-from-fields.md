@@ -25,6 +25,13 @@ $cases = $company->content()
     ->get();
 ```
 
+```php
+// Get only related content of type 'case'
+$company = $case->content_related()
+    ->where('type_slug', 'company')
+    ->get();
+```
+
 ### Relationship Structure
 
 The relationships are stored in the `relationables` table with the following structure:

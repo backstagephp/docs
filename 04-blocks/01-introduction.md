@@ -91,7 +91,7 @@ use Backstage\Facades\Backstage;
 Backstage::registerComponent(CallToAction::class);
 ```
 
-You can also add this component to `config/backstage.php`.
+You can also add this component to `config/backstage/cms.php`.
 
 ```php
 return [
