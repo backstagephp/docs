@@ -27,7 +27,7 @@ $cases = $company->content()
 
 ```php
 // Get only related content of type 'case'
-$company = $case->content_related()
+$company = $case->relatedContent()
     ->where('type_slug', 'company')
     ->get();
 ```
