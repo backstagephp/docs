@@ -30,14 +30,7 @@ export default defineConfig({
             ]
            },
           { text: 'Types', link: '/02-types/01-introduction' },
-          { 
-            text: 'Fields', 
-            items: [
-              { text: 'Introduction', link: '/03-fields/01-introduction' },
-              { text: 'Creating a new field', link: '/03-fields/02-creating-a-new-field' },
-              { text: 'Retrieving Data from Fields', link: '/03-fields/03-retrieving-data-from-fields' },
-            ]
-          },
+          { text: 'Fields', link: '/03-fields/01-introduction' },
           { text: 'Blocks', link: '/04-blocks/01-introduction' },
         ]
       },
