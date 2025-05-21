@@ -50,7 +50,12 @@ export default defineConfig({
       {
         text: 'Extending Backstage',
         items: [
-          { text: 'Plugins', link: '/09-plugins/01-introduction' }
+          { text: 'Plugins', link: '/09-plugins/01-introduction', items: [
+            { text: 'Translations', link: '/09-plugins/plugins/translations/01-introduction', items: [
+              { text: 'Laravel Translations', link: '/09-plugins/plugins/translations/sub/laravel-translations/01-introduction' },
+            ]
+            },
+          ] }
         ]
       }
     ],
