@@ -24,11 +24,12 @@ export default defineConfig({
       {
         text: 'Content',
         items: [
-          { text: 'Introduction', link: '/01-content/01-introduction',
+          {
+            text: 'Introduction', link: '/01-content/01-introduction',
             items: [
               { text: 'Urls', link: '/01-content/02-urls' },
             ]
-           },
+          },
           { text: 'Types', link: '/02-types/01-introduction' },
           { text: 'Fields', link: '/03-fields/01-introduction' },
           { text: 'Blocks', link: '/04-blocks/01-introduction' },
@@ -50,7 +51,15 @@ export default defineConfig({
       {
         text: 'Extending Backstage',
         items: [
-          { text: 'Plugins', link: '/09-plugins/01-introduction' }
+          {
+            text: 'Plugins', link: '/09-plugins/01-introduction', items: [
+              {
+                text: 'Translations', link: '/09-plugins/plugins/translations/01-introduction', items: [
+                  { text: 'Laravel Translations', link: '/09-plugins/plugins/translations/sub/laravel-translations/01-introduction' },
+                ]
+              },
+            ]
+          }
         ]
       }
     ],

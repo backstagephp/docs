@@ -10,3 +10,4 @@ To help you get started quickly, we provide a set of plugins and packages that w
 
 -   [Media Field](https://github.com/backstagephp/media-field)
 -   [Uploadcare Field](https://github.com/backstagephp/uploadcare-field)
+-   [Translations](/09-plugins/plugins/translations/01-introduction.html)
