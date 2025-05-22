@@ -15,3 +15,4 @@ If your plugin required migrations use the following tag to automaticly publish 
 
 -   [Media Field](https://github.com/backstagephp/media-field)
 -   [Uploadcare Field](https://github.com/backstagephp/uploadcare-field)
+-   [Translations](/09-plugins/plugins/translations/01-introduction.html)
