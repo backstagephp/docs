@@ -10,7 +10,7 @@ Content is the foundation of each page. Every content item has a [type](/02-type
 
 Blade templates are resolved in this order:
 
-1. The `template_slug` value for the content (e.g., `content.sidebar-left`).
+1. The `view` value for the content (e.g., `content.sidebar-left`).
 2. `/resources/views/types/{content_type}.blade.php` (where `{content_type}` is the type slug).
 3. `/resources/views/types/default.blade.php` (fallback for types without a custom template).
 4. The Backstage default blade file.
@@ -32,4 +32,61 @@ Blade templates are resolved in this order:
     <x-blocks field="blocks" />
     <x-blocks field="main" />
 </x-page>
+```
+
+### View Composers
+
+If you want custom code to be executed and control the variables to the view you can use [View Composers](https://laravel.com/docs/12.x/views#view-composers) to achieve this.
+
+1. When editing content, use a custom view for the content (e.g. `content.search`).
+![View file in content](view-template.png)
+
+2. Create a View Composer
+
+```php
+// app/View/Composers/SearchComposer.php
+
+namespace App\View\Composers;
+
+use Backstage\Models\Content;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+
+class SearchComposer
+{
+    /**
+     * Create a new profile composer.
+     */
+    public function __construct(
+        public Request $request,
+    ) {}
+
+    /**
+     * Bind data to the view.
+     */
+    public function compose(View $view): void
+    {
+        $params = $this->request->query();
+
+        $results = Content::when($params['q'] ?? null, function ($query, $search) {
+            return $query->where('name', 'like', '%' . $search . '%');
+        })
+            ->public()
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        $view->with('results', $results);
+    }
+}
+```
+
+3. Register this composer in the AppServiceProvider.php
+
+```php
+// app/Providers/AppServiceProvider.php
+
+public function boot(): void
+{
+    View::composer('content.search', SearchComposer::class);
+}
 ```
