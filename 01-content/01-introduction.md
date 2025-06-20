@@ -34,7 +34,7 @@ Blade templates are resolved in this order:
 </x-page>
 ```
 
-### View Composers
+## View Composers
 
 If you want custom code to be executed and control the variables to the view you can use [View Composers](https://laravel.com/docs/12.x/views#view-composers) to achieve this.
 
