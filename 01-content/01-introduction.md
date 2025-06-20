@@ -90,3 +90,15 @@ public function boot(): void
     View::composer('content.search', SearchComposer::class);
 }
 ```
+
+4. You can now use this in your blade file
+
+```blade
+<!-- resources/views/content/search.blade.php -->
+
+<div class="col-span-full py bg-full-orange text-white">
+    <strong>Zoeken</strong>
+    @dump($results)
+</div>
+
+```
