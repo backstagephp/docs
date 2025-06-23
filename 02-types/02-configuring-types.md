@@ -13,8 +13,6 @@ title: Configuring Types
 
 You can create content types and add custom fields to them using the built-in [Fields](/03-fields/01-introduction) package.
 
----
-
 ## Defining a Type
 
 To define a new content type:
@@ -26,8 +24,6 @@ To define a new content type:
 
 ![Define a content type](defining-type.png)
 
----
-
 ## Configuring Settings
 
 ### Sorting
@@ -35,8 +31,6 @@ To define a new content type:
 You can define how content of this type should be sorted by default. Simply select the column you want to use for sorting in the **Settings** tab.
 
 ![Settings](settings.png)
-
----
 
 ### Parent Selection
 
