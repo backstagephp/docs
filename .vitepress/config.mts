@@ -18,7 +18,8 @@ export default defineConfig({
         text: 'Introduction',
         items: [
           { text: 'Quick start', link: '/quick-start' },
-          { text: 'Installation', link: '/installation' }
+          { text: 'Installation', link: '/installation' },
+          { text: 'Upgrade', link: '/upgrade' }
         ]
       },
       {
@@ -34,12 +35,8 @@ export default defineConfig({
           { text: 'Types', link: '/02-types/01-introduction' },
           { text: 'Fields', link: '/03-fields/01-introduction' },
           { text: 'Blocks', link: '/04-blocks/01-introduction' },
-        ]
-      },
-      {
-        text: 'Forms',
-        items: [
-          { text: 'Introduction', link: '/05-forms/01-introduction' },
+          { text: 'Forms', link: '/05-forms/01-introduction' },
+          { text: 'Menu', link: '/08-menu/01-introduction' },
         ]
       },
       {
