@@ -102,3 +102,13 @@ public function boot(): void
 </div>
 
 ```
+
+## Retrieving Data from Components
+
+To retrieve data from a component, you can use the shared view data:
+
+```php
+$content = view()->shared('content');
+```
+
+This allows you to access the current content instance from within components or other parts of your application.
