@@ -35,12 +35,8 @@ export default defineConfig({
           { text: 'Types', link: '/02-types/01-introduction' },
           { text: 'Fields', link: '/03-fields/01-introduction' },
           { text: 'Blocks', link: '/04-blocks/01-introduction' },
-        ]
-      },
-      {
-        text: 'Forms',
-        items: [
-          { text: 'Introduction', link: '/05-forms/01-introduction' },
+          { text: 'Forms', link: '/05-forms/01-introduction' },
+          { text: 'Menu', link: '/08-menu/01-introduction' },
         ]
       },
       {
