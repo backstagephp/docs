@@ -32,7 +32,12 @@ export default defineConfig({
               { text: 'Query scopes', link: '/01-content/03-scopes' },
             ]
           },
-          { text: 'Types', link: '/02-types/01-introduction' },
+          {
+            text: 'Types', link: '/02-types/01-introduction',
+            items: [
+              { text: 'Configuring Types', link: '/02-types/02-configuring-types' },
+            ]
+          },
           { text: 'Fields', link: '/03-fields/01-introduction' },
           { text: 'Blocks', link: '/04-blocks/01-introduction' },
           { text: 'Forms', link: '/05-forms/01-introduction' },
