@@ -57,10 +57,14 @@ export default defineConfig({
           {
             text: 'Plugins', link: '/09-plugins/01-introduction', items: [
               {
+                text: 'Mails', link: '/09-plugins/plugins/mails/01-introduction'
+              },
+              {
                 text: 'Translations', link: '/09-plugins/plugins/translations/01-introduction'
               },
+
             ]
-          }
+          },
         ]
       }
     ],
