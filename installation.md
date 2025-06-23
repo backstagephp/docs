@@ -65,10 +65,6 @@ php artisan backstage:install
 //});
 ```
 
-### Upgrade
-
-To upgrade simple use `composer upgrade` and `php artisan backstage:upgrade`.
-
 ### Advanced setup
 
 You can publish the migrations with:

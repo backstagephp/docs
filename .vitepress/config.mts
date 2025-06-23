@@ -18,7 +18,8 @@ export default defineConfig({
         text: 'Introduction',
         items: [
           { text: 'Quick start', link: '/quick-start' },
-          { text: 'Installation', link: '/installation' }
+          { text: 'Installation', link: '/installation' },
+          { text: 'Upgrade', link: '/upgrade' }
         ]
       },
       {
