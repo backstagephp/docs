@@ -9,7 +9,7 @@ title: Backstage Laravel Mails
 You can install the package via composer:
 
 ```bash
-composer require vormkracht10/laravel-mails
+composer require backstage/laravel-mails
 ```
 
 You can publish and run the migrations with:
