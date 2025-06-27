@@ -39,7 +39,7 @@ php artisan vendor:publish --tag="filament-mails-views"
 Add the routes to the PanelProvider using the `routes()` method, like this:
 
 ```php
-use Vormkracht10\FilamentMails\Facades\FilamentMails;
+use Backstsage\FilamentMails\Facades\FilamentMails;
 
 public function panel(Panel $panel): Panel
 {
@@ -51,7 +51,7 @@ public function panel(Panel $panel): Panel
 Then add the plugin to your `PanelProvider`
 
 ```php
-use Vormkracht10\FilamentMails\FilamentMailsPlugin;
+use Backstsage\FilamentMails\FilamentMailsPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -65,8 +65,8 @@ public function panel(Panel $panel): Panel
 If you want to protect the mail routes with your (tenant) middleware, you can do so by adding the routes to the `tenantRoutes`:
 
 ```php
-use Vormkracht10\FilamentMails\FilamentMailsPlugin;
-use Vormkracht10\FilamentMails\Facades\FilamentMails;
+use Backstsage\FilamentMails\FilamentMailsPlugin;
+use Backstsage\FilamentMails\Facades\FilamentMails;
 
 public function panel(Panel $panel): Panel
 {
