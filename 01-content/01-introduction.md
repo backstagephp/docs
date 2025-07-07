@@ -10,7 +10,7 @@ Content is the foundation of each page. Every content item has a [type](/02-type
 
 Blade templates are resolved in this order:
 
-1. The `view` value for the content (e.g., `content.sidebar-left`).
+1. The `view` value for the content (e.g., `pages.contact` will render `/resources/views/pages/contact.blade.php`).
 2. `/resources/views/types/{content_type}.blade.php` (where `{content_type}` is the type slug).
 3. `/resources/views/types/default.blade.php` (fallback for types without a custom template).
 4. The Backstage default blade file.
