@@ -46,3 +46,8 @@ Add filter:
 Column: Type_Slug
 Operator: Equal
 Value: [slug-of-type] e.g. 'members'.
+
+### Scope content select based on language
+
+Here is an example to scope the select options of a field by content and language.
+![Session language filter](field-scoped-by-language.png)
