@@ -22,7 +22,7 @@ php artisan make:filament-user
 
 ### 2. Login
 
-Open /backstage and login.
+Open /backstage and login. If this is your first user you need to make a new site. Create one on /backstage/new.
 
 ### 3. (optional) Create a content type
 
