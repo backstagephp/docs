@@ -8,9 +8,21 @@ The CMS build for Laravel developers.
 
 ### Install
 
-You can install backstage in any (new) Laravel project or start from scratch. If you already have a (Laravel) website running you can skip step 1. You can also use our [Backstage Installer](https://github.com/backstagephp/installer).
+You can install backstage in any (new) Laravel project or start from scratch. The easiest way to start is install our [Backstage Installer](https://github.com/backstagephp/installer).
 
-#### Step 1. (Optional) Create a new Laravel app.
+```bash
+composer global require backstage/installer
+```
+
+After that you can use the `backstage` commando to make a new site.
+
+```bash
+backstage new my-site
+```
+
+## Advanced installation
+
+#### Step 1. Create a new Laravel app.
 
 ```bash
 laravel new my-website
