@@ -60,7 +60,7 @@ export default defineConfig({
                 text: 'Mails', link: '/09-plugins/plugins/mails/01-introduction'
               },
               {
-                text: 'Translations', link: '/09-plugins/plugins/translations/index.md', items: [
+                text: 'Translations', link: '/09-plugins/plugins/translations/index.md', collapsed: true, items: [
                   {
                     text: "Installation", link: '/09-plugins/plugins/translations/installation',
                   },
@@ -78,7 +78,7 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Laravel Translations', link: '/09-plugins/plugins/laravel-translations/index.md', items: [
+            text: 'Laravel Translations', link: '/09-plugins/plugins/laravel-translations/index.md', collapsed: true, items: [
               {
                 text: "Installation", link: '/09-plugins/plugins/laravel-translations/installation',
               },
