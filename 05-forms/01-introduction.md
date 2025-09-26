@@ -40,6 +40,15 @@ Add a new field with this configuration:
   - Set **slug** as the Key column
   - Set **name** as the Display column
 
+Don't see Form resource? Add the following to `config/backstage/fields.php`- config
+```php
+// config/backstage/fields.php
+    'selectable_resources' => [
+        ContentResource::class,
+        FormResource::class
+    ],
+```
+
 ![Form Block Configuration](form-block-setup.png)
 
 After this setup, forms will be available in the content builder.
