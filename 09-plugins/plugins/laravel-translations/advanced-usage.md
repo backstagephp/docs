@@ -522,7 +522,7 @@ public function getTranslatableAttributeRulesForContent(): array|string
 
 // Effect:
 // - Translates all items in content.metadata.tags [0..*]
-// - Leaves content.data.other unchanged
+// - Leaves content.metadata.{other} unchanged
 ```
 
 ## Next Steps
