@@ -508,6 +508,23 @@ public function getTranslatableAttributeRulesForContent(): array|string
 // return '*';
 ```
 
+#### Example use case
+
+```php
+public function getTranslatableAttributeRulesForContent(): array|string
+{
+    return [
+        'metadata' => [
+            'tags' => ['*'],
+        ],
+    ];
+}
+
+// Effect:
+// - Translates all items in content.metadata.tags [0..*]
+// - Leaves content.data.other unchanged
+```
+
 ## Next Steps
 
 - [Configuration](configuration.md) - Complete configuration options
