@@ -60,11 +60,48 @@ export default defineConfig({
                 text: 'Mails', link: '/09-plugins/plugins/mails/01-introduction'
               },
               {
-                text: 'Translations', link: '/09-plugins/plugins/translations/01-introduction'
-              },
-
+                text: 'Translations', link: '/09-plugins/plugins/translations/index.md', items: [
+                  {
+                    text: "Installation", link: '/09-plugins/plugins/translations/installation',
+                  },
+                  {
+                    text: "Usage", link: '/09-plugins/plugins/translations/usage',
+                  },
+                  {
+                    text: "Filament Interface", link: '/09-plugins/plugins/translations/filament-interface',
+                  },
+                  {
+                    text: "API Reference", link: '/09-plugins/plugins/translations/api-reference',
+                  }
+                ]
+              }
             ]
           },
+          {
+            text: 'Laravel Translations', link: '/09-plugins/plugins/laravel-translations/index.md', items: [
+              {
+                text: "Installation", link: '/09-plugins/plugins/laravel-translations/installation',
+              },
+              {
+                text: "Configuration", link: '/09-plugins/plugins/laravel-translations/configuration',
+              },
+              {
+                text: "Basic Usage", link: '/09-plugins/plugins/laravel-translations/basic-usage',
+              },
+              {
+                text: "Model Attributes", link: '/09-plugins/plugins/laravel-translations/model-attributes',
+              },
+              {
+                text: "Translation Providers", link: '/09-plugins/plugins/laravel-translations/providers',
+              },
+              {
+                text: "Commands", link: '/09-plugins/plugins/laravel-translations/commands',
+              },
+              {
+                text: "Advanced Usage", link: '/09-plugins/plugins/laravel-translations/advanced-usage',
+              }
+            ]
+          }
         ]
       }
     ],
