@@ -27,4 +27,4 @@ public function boot(): void
 
 -   [Media Field](https://github.com/backstagephp/media-field)
 -   [Uploadcare Field](https://github.com/backstagephp/uploadcare-field)
--   [Translations](/09-plugins/plugins/translations/01-introduction.html)
+-   [Translations](/09-plugins/plugins/translations/index.html)
