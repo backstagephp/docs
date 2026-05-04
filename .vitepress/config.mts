@@ -49,6 +49,7 @@ export default defineConfig({
         items: [
           { text: 'Settings', link: '/06-settings/01-introduction' },
           { text: 'Sites & domains', link: '/07-sites/01-introduction' },
+          { text: 'Helpers', link: '/10-helpers/01-introduction' },
         ]
       },
       {
