@@ -16,40 +16,40 @@ For every request that resolves to a piece of content, the `BindSite` middleware
 
 The bindings are registered with `app()->scoped(...)`, so they are reset between requests under Octane and other long-lived workers.
 
-## `backstage()`
+## `stage()`
 
-The `backstage()` helper is the main entry point. Without arguments it returns the helpers instance:
+The `stage()` helper is the main entry point. Without arguments it returns the helpers instance:
 
 ```php
-backstage();              // Backstage\Helpers\Support\Helpers
-backstage()->site();      // current Site
-backstage()->content();   // current Content
+stage();              // Backstage\Helpers\Support\Helpers
+stage()->site();      // current Site
+stage()->content();   // current Content
 ```
 
 You can also resolve a binding directly by name, with optional dot-notation for properties:
 
 ```php
-backstage('site');         // current Site
-backstage('content.title'); // shorthand for backstage()->content()->title
-backstage('language');     // current Language
+stage('site');         // current Site
+stage('content.title'); // shorthand for stage()->content()->title
+stage('language');     // current Language
 ```
 
-If the binding is not registered (for example, on a request that did not resolve content), `backstage('site')` returns `null`. Calling `backstage()->site()` without arguments outside a content response throws an exception.
+If the binding is not registered (for example, on a request that did not resolve content), `stage('site')` returns `null`. Calling `stage()->site()` without arguments outside a content response throws an exception.
 
 ### Looking up a specific record
 
 Both `site()` and `content()` accept lookup arguments:
 
 ```php
-backstage()->site('main');                       // Site where slug = 'main'
-backstage()->site($id, 'ulid');                  // Site where ulid = $id
+stage()->site('main');                       // Site where slug = 'main'
+stage()->site($id, 'ulid');                  // Site where ulid = $id
 
-backstage()->content('about');                   // Content where slug = 'about' (current locale)
-backstage()->content('about', locale: 'nl');     // Content where slug = 'about' and language_code = 'nl'
+stage()->content('about');                   // Content where slug = 'about' (current locale)
+stage()->content('about', locale: 'nl');     // Content where slug = 'about' and language_code = 'nl'
 
 // Scope a content lookup to a specific site
-backstage()->content('about', site: 'main');                 // by site slug
-backstage()->content('about', site: $site, siteColumn: 'id'); // by Site instance + column
+stage()->content('about', site: 'main');                 // by site slug
+stage()->content('about', site: $site, siteColumn: 'id'); // by Site instance + column
 ```
 
 When `$slug` is `null`, the call returns the request-bound record (equivalent to `app('site')` / `app('content')`).
@@ -84,12 +84,12 @@ Both directives compile to a check against `hasSlug(...)` on the bound model, so
 {{-- Show a hero only on the homepage of the main site --}}
 @site('main')
     @content('home')
-        <x-hero :title="backstage()->content()->title" />
+        <x-hero :title="stage()->content()->title" />
     @endcontent
 @endsite
 
 {{-- Pull a sibling page by slug --}}
-@php($about = backstage()->content('about'))
+@php($about = stage()->content('about'))
 
 <a href="{{ $about->url }}">{{ $about->title }}</a>
 ```
@@ -98,8 +98,8 @@ Both directives compile to a check against `hasSlug(...)` on the bound model, so
 // In a controller
 public function show()
 {
-    $site    = backstage()->site();
-    $content = backstage()->content();
+    $site    = stage()->site();
+    $content = stage()->content();
 
     return view('page', compact('site', 'content'));
 }
@@ -114,9 +114,9 @@ props();          // Backstage\Props\Helpers\Support\Helpers
 props()->ping();  // example helper exposed by props ('pong')
 ```
 
-Like `backstage()`, the `props()` helper also accepts a binding name (with optional dot-notation), e.g. `props('something.value')`, returning `null` when the binding is not registered.
+Like `stage()`, the `props()` helper also accepts a binding name (with optional dot-notation), e.g. `props('something.value')`, returning `null` when the binding is not registered.
 
-Use `backstage()` for everything provided by core; reach for `props()` only when you have registered your own helpers in the props package.
+Use `stage()` for everything provided by core; reach for `props()` only when you have registered your own helpers in the props package.
 
 ### Adding your own helpers
 
