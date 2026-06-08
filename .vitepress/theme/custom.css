@@ -1,5 +1,25 @@
+/* Light mode: dark navy brand reads well on the light background */
 :root {
-    --vp-c-brand-1: #10182b;
-    --vp-c-brand-2: #10182b;
-    --vp-button-brand-bg: #a5d7ba;
-  }
+  --vp-c-brand-1: #10182b;
+  --vp-c-brand-2: #1d2a47;
+  --vp-c-brand-3: #a5d7ba;
+
+  --vp-button-brand-bg: #a5d7ba;
+  --vp-button-brand-text: #10182b;
+  --vp-button-brand-hover-bg: #93cdab;
+  --vp-button-brand-hover-text: #10182b;
+}
+
+/* Dark mode: navy is invisible on a dark background, so accents
+   (links, heading anchors, inline code, "on this page" nav) use the
+   mint accent instead. */
+.dark {
+  --vp-c-brand-1: #a5d7ba;
+  --vp-c-brand-2: #b9e2c9;
+  --vp-c-brand-3: #a5d7ba;
+
+  --vp-button-brand-bg: #a5d7ba;
+  --vp-button-brand-text: #10182b;
+  --vp-button-brand-hover-bg: #b9e2c9;
+  --vp-button-brand-hover-text: #10182b;
+}
