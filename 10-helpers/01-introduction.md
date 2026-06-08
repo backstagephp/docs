@@ -54,6 +54,69 @@ stage()->content('about', site: $site, siteColumn: 'id'); // by Site instance + 
 
 When `$slug` is `null`, the call returns the request-bound record (equivalent to `app('site')` / `app('content')`).
 
+### Menus
+
+`stage()->menu()` resolves a menu by its `slug` (`$name`), scoped to the current site and locale, and returns it as a **nested array tree** — plain data, not Eloquent models — ready to render in a Blade view:
+
+```php
+stage()->menu();                    // 'main' menu for the current site + locale
+stage()->menu('footer');            // a named menu
+stage()->menu('main', $site, 'nl'); // explicit site + locale
+```
+
+The menu is matched on `menus.slug = $name`, then narrowed to the resolved `site_ulid` and `language_code` (both columns live on the `menus` table). So a `main` menu can exist per site/locale without the slug having to encode them — and if no menu matches that slug for the current site and locale, the helper returns the empty shape described below.
+
+Each node is an array:
+
+```php
+[
+    'name'       => 'Product',
+    'url'        => '#',     // resolved link: linked content URL, else the manual URL, else '#'
+    'target'     => null,
+    'is_action'  => false,   // target starts with 'action'
+    'is_primary' => false,   // target === 'action-primary'
+    'children'   => [ /* same shape, nested to any depth */ ],
+]
+```
+
+Items are loaded through the adjacency-list tree, ordered by `position`. Any linked content is eager-loaded with only the columns needed to build its URL, so resolving a menu is just the slug lookup plus one tree query.
+
+#### Diverging navigation and actions
+
+By default (`$diverge = true`) the top-level items are split into navigation links and action buttons — actions being items whose `target` starts with `action`. A component can destructure them in one call:
+
+```php
+// app/View/Components/Section/Navigation.php
+[$this->navigation, $this->actions] = stage()->menu('main');
+```
+
+Pass `diverge: false` to get a single flat collection of root nodes instead — useful for a footer that has no actions:
+
+```php
+$this->footerMenu = stage()->menu('footer', diverge: false);
+```
+
+When no site can be resolved, the helper returns the matching empty shape (`[collect(), collect()]` when diverging, otherwise an empty collection), so the destructure never fails.
+
+Rendering then just walks the arrays:
+
+```blade
+@foreach($navigation as $item)
+    @if(count($item['children']))
+        <button type="button">{{ $item['name'] }}</button>
+        <ul>
+            @foreach($item['children'] as $child)
+                <li><a href="{{ $child['url'] }}">{{ $child['name'] }}</a></li>
+            @endforeach
+        </ul>
+    @else
+        <a href="{{ $item['url'] }}">{{ $item['name'] }}</a>
+    @endif
+@endforeach
+```
+
+> The `active` state is deliberately **not** part of the array — it depends on the current request, so resolve it in the view layer (e.g. an `isActive()` method on the component).
+
 ## Blade directives
 
 ### `@site`
