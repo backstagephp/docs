@@ -117,6 +117,27 @@ Rendering then just walks the arrays:
 
 > The `active` state is deliberately **not** part of the array — it depends on the current request, so resolve it in the view layer (e.g. an `isActive()` method on the component).
 
+### Field options
+
+`stage()->fieldOptions()` returns the `options` array configured on a field, looked up by its `model_key` and `slug`. It replaces the brittle chain of fetching the field and reaching into `config['options']` by hand:
+
+```php
+// Before — explodes if the field is missing or has no options
+$statusOptions = Field::where('model_key', 'property')->where('slug', 'status')->first()->config['options'];
+
+// After
+$statusOptions = stage()->fieldOptions('property', 'status');
+```
+
+The helper never throws. If no field matches the given `model_key` + `slug`, or the matched field has no `options` configured, it reports the problem through Laravel's `report()` handler (a `RuntimeException`, so you get a full stack trace in your logs) and returns an empty array:
+
+```php
+stage()->fieldOptions('property', 'status'); // ['draft' => 'Draft', 'published' => 'Published', ...]
+stage()->fieldOptions('property', 'missing'); // [] — exception reported, request continues
+```
+
+Because the fallback is always `[]`, it is safe to feed straight into a Blade loop or a select without guarding the call.
+
 ## Blade directives
 
 ### `@site`
